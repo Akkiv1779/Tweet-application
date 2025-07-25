@@ -1,0 +1,27 @@
+!{% extends "layout.html" %}
+
+{% block title %}
+fulstack practice project 
+{% endblock %}
+
+
+{% block  content%}
+<h1 class="text-center mt-4">This in my Frist practice project</h1>
+
+<h2> 
+    {% if form.instance.pk %} 
+    Edit Tweet 
+    {% else %} 
+    Create tweet
+    {% endif %} 
+    <form method="post" class="form" enctype= "multipart/form-data"> 
+        {% csrf_token %}
+        {{form.as_p}}
+    <button type="submit" class="btn btn-warning">Submit</button>
+
+    </form>
+   <a href="{% url 'tweet_list' %}"> Back to Tweet List</a>
+</h2>
+
+
+{% endblock %}
